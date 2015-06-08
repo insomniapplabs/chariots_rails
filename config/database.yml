@@ -88,5 +88,5 @@ test:
 production:
   <<: *default
   database: chariots_production
-  username: admin
+  username: deployer
   password: h0lein0ne
