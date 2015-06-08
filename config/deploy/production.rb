@@ -52,10 +52,10 @@ server '104.131.1.187', user: 'deployer', roles: %w{app db web}, my_property: :m
 # server 'example.com',
 #   user: 'user_name',
 #   roles: %w{web app},
-   ssh_options: {
-     user: 'deployer', # overrides user setting above
-     #keys: %w(/home/user_name/.ssh/id_rsa),
-     forward_agent: false,
-     auth_methods: %w(password)
-     password: 'h0lein0ne'
-   }
+set ssh_options: {
+  user: 'deployer', # overrides user setting above
+  #keys: %w(/home/user_name/.ssh/id_rsa),
+  forward_agent: false,
+  auth_methods: %w(password)
+  password: 'h0lein0ne'
+}
