@@ -3,7 +3,7 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server '104.131.1.187', user: 'deployer', roles: %w{app db web}, my_property: :my_value
+# server '104.131.1.187', user: 'deployer', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
@@ -20,8 +20,11 @@ server '104.131.1.187', user: 'deployer', roles: %w{app db web}, my_property: :m
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
+role :app, %w{deployer@104.131.1.187}
+role :web, %w{deployer@104.131.1.187}
+role :db,  %w{deployer@104.131.1.187}
 
-
+server '104.131.1.187', user: 'deployer', roles: %w{web}
 
 # Configuration
 # =============
@@ -52,10 +55,17 @@ server '104.131.1.187', user: 'deployer', roles: %w{app db web}, my_property: :m
 # server 'example.com',
 #   user: 'user_name',
 #   roles: %w{web app},
-set ssh_options: {
-  user: 'deployer', # overrides user setting above
-  #keys: %w(/home/user_name/.ssh/id_rsa),
-  forward_agent: false,
-  auth_methods: %w(password),
-  password: 'h0lein0ne'
+#   ssh_options: {
+#     user: 'user_name', # overrides user setting above
+#     keys: %w(/home/user_name/.ssh/id_rsa),
+#     forward_agent: false,
+#     auth_methods: %w(publickey password)
+#     # password: 'please use keys'
+#   }
+
+set :ssh_options, {
+    forward_agent: false,
+    auth_methods: %w(password),
+    password: 'h0lein0ne',
+    user: 'deployer',
 }
