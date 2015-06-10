@@ -87,6 +87,6 @@ test:
 #
 production:
   <<: *default
-  database: chariots_production
-  username: deployer
+  database: postgres
+  username: postgres
   password: h0lein0ne
