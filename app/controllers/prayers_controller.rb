@@ -9,7 +9,7 @@ class PrayersController < ApplicationController
 
   private
     def prayer_params
-      params.require(:prayer).permit(:full_name, email:, :phone, :prayer_request)
+      params.require(:prayer).permit(:full_name, :email, :phone, :prayer_request)
     end
 
 end
