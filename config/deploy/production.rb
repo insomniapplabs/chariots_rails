@@ -20,12 +20,10 @@
 # role :app, %w{deploy@example.com}, my_property: :my_value
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
-role :app, %w{deployer@104.131.1.187}
-role :web, %w{deployer@104.131.1.187}
-role :db,  %w{deployer@104.131.1.187}
+set :stage, :production
 
-server '104.131.1.187', user: 'deployer', roles: %w{web}
-
+# Replace 127.0.0.1 with your server's IP address!
+server '104.236.111.53', user: 'deployer', roles: %w{web app}
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb

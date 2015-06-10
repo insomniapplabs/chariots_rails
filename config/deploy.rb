@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+# lock '3.4.0'
 
 set :application, 'chariots'
 set :repo_url, 'https://github.com/insomniapplabs/chariots_rails.git'
@@ -9,6 +9,10 @@ set :repo_url, 'https://github.com/insomniapplabs/chariots_rails.git'
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deployer/apps/chariots'
+
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
 
 set :user, "deployer"
 # Default value for :scm is :git
@@ -25,7 +29,7 @@ set :pty, true
 
 set :deploy_via, :remote_cache
 
-set :assets_roles, [:web, :app] 
+set :assets_roles, [:web, :app]
 
 # Default value for :linked_files is []
 # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
@@ -41,12 +45,13 @@ set :keep_releases, 5
 
 namespace :deploy do
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      execute :touch, release_path.join("tmp/restart.txt")
+  desc 'Restart application'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
-  after :finishing, "deploy:cleanup"
-
+  after :publishing, 'deploy:restart'
+  after :finishing, 'deploy:cleanup'
 end
