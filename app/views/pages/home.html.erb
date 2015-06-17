@@ -103,21 +103,21 @@
 				<%= form_for @prayer do |f| %>
 					<div class="form-group">
 						<label>Full Name</label>
-						<%= f.text_field :full_name, class: "form-control" %>
+						<%= f.text_field :full_name, class: "form-control-p" %>
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<%= f.text_field :email, class: "form-control" %>
+						<%= f.text_field :email, class: "form-control-p" %>
 					</div>
 					<div class="form-group">
 						<label>Phone</label>
-						<%= f.text_field :phone, class: "form-control" %>
+						<%= f.text_field :phone, class: "form-control-p" %>
 					</div>
 					<div class="form-group">
 						<label>Prayer Request</label>
-						<%= f.text_area :prayer_request, class: "form-control" %>
+						<%= f.text_area :prayer_request, class: "form-control-p", rows: '8' %>
 					</div>
-					<%= f.submit "Submit Prayer Request", class: "btn btn-default" %>
+					<%= f.submit "Submit Prayer Request", class: "btn btn-blue" %>
 				<% end %>
 			</div>
 		</div>
