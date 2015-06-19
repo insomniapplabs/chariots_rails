@@ -3,6 +3,7 @@ class PrayersController < ApplicationController
   def create
     @prayer = Prayer.create(prayer_params)
     if @prayer.save
+      PrayerMailer.prayer_request(@prayer).deliver
       redirect_to root_path
     end
   end

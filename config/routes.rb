@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'pages/home'
+  get 'dashboard', to: 'dashboard#index'
+  get 'dashboard/events', to: 'dashboard#events'
+  get 'signup', to: 'users#new'
+
+  resources :users
+
   resources :events
 
   mount RedactorRails::Engine => '/redactor_rails'
   resources :prayers
 
-  get 'pages/home'
-  get 'dashboard', to: 'dashboard#index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

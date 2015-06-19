@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def home
-    @prayer = Prayer.new
+    @upcoming_events = Event.all
   end
   
 end
