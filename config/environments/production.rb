@@ -88,7 +88,7 @@ Rails.application.configure do
     :authentication => :plain,
     :user_name => 'aaronjohnsonis',
     :password => 'h0lein0ne',
-    :domain => 'chariots4christ.com',
+    :domain => 'chariots4christ.org',
     :enable_starttls_auto => true
   }
 
