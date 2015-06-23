@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.easing.min
 //= require redactor-rails
 //= require turbolinks
 //= require_tree .
