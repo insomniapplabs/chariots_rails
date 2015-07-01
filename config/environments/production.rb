@@ -83,12 +83,11 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'chariots4christ.org'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => 'smtp.sendgrid.net',
+    :address => 'smtp.gmail.com',
     :port => '587',
     :authentication => :plain,
-    :user_name => 'aaronjohnsonis',
-    :password => 'h0lein0ne',
-    :domain => 'chariots4christ.org',
+    :user_name => ENV['GMAIL_USERNAME'],
+    :password => ENV['GMAIL_PASSWORD'],
     :enable_starttls_auto => true
   }
 

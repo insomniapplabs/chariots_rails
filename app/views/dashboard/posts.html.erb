@@ -1,0 +1,40 @@
+<%= render 'dashnav' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="latoblack">Events <span class="pull-right btn btn-orange" data-toggle="modal" data-target="#eventModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<% if @events.present? %>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Date</th>
+						<th>&nbsp;</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for event in @events %>
+					<tr>
+						<td><p class="latolight"><%= event.title %></p></td>
+						<td><p class="latolight"><%= event.date %></p></td>
+						<td>
+							<p class="latolight text-right">
+								<%= link_to "Edit", edit_event_path(event) %> | 
+								<%= link_to "Delete", event, method: :delete %>
+							</p>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% else %>
+				<h3 class="latolight">No events scheduled. <%= link_to "Create one", "", { "data-toggle" => "modal", "data-target" => "#eventModal" } %>.</h3>
+			<% end %>
+		</div>
+	</div>
+</div>

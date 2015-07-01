@@ -1,7 +1,13 @@
 class EventsController < ApplicationController
 
   def create
-      @event = Event.create(event_params)
+  	@event = Event.create(event_params)
+  end
+
+  def destroy
+  	@event = Event.find(params[:id])
+  	@event.destroy
+  	redirect_to dashboard_events_path
   end
 
 

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :posts
+
   get 'sessions/new'
   get 'pages/home'
   get 'dashboard', to: 'dashboard#index'
   get 'dashboard/events', to: 'dashboard#events'
-  get 'signup', to: 'users#new'
+  get 'dashboard/posts', to: 'dashboard#posts'
+  get 'c4c-signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

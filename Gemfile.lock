@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
+  revision: 486f26e0c4cbbc6e55a1d8a477a550f5a6594a8d
+  specs:
+    bootstrap-datepicker-rails (1.4.0)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/capistrano/rbenv.git
   revision: 6f1216cfe0a6b4ac23ca4eaf8acf012e8165d247
   specs:
@@ -48,6 +55,9 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-figaro-yml (1.0.2)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2, >= 1.2.0)
     capistrano-rails (1.1.3)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -73,6 +83,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.5.2)
+    figaro (1.1.1)
+      thor (~> 0.14)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.16)
@@ -170,12 +182,15 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bcrypt (~> 3.1.7)
+  bootstrap-datepicker-rails!
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)
+  capistrano-figaro-yml (~> 1.0.2)
   capistrano-rails (~> 1.1.1)
   capistrano-rbenv!
   carrierwave
   coffee-rails (~> 4.0.0)
+  figaro
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick

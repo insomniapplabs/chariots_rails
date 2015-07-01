@@ -15,5 +15,6 @@
 //= require bootstrap
 //= require jquery.easing.min
 //= require redactor-rails
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
