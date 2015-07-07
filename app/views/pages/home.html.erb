@@ -1,5 +1,5 @@
 <%= render 'partials/main_nav' %>
-<div class="moto-container">
+<div class="moto-container" id="home">
 	<p class="text-center"><%= image_tag "moto2.jpg", class: "moto-img" %></p>
 </div>
 
@@ -31,28 +31,34 @@
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
 				<div class="row">
-					<div class="col-md-6 border-right">
+					<div class="col-md-6">
 						<h2 class="text-center latolight">Upcoming Events</h2>
 						<% if @upcoming_events.blank? %>
-						<h3 class="latobold text-center">Currently no events posted.</h3>
+						<h3 class="latoregular text-center gray">Currently no events posted.</h3>
 						<% end %>
 						<% for event in @upcoming_events %>
-							<h3 class="text-center latobold event-title"><%= event.title %></h3>
-        		<p class="event-date latoregular text-center"><%= event.date %></p>
-        		<p class="text-center latolight event-detail"><%= event.description %></p>
-        		<p class="text-center"><a href="#" class="btn btn-orange">View Details</a></p>
+							<h3 class="text-center latoregular event-title"><%= link_to event.title, event, class: "orange-link" %></h3>
+
+
+        		<% if event.end_date.blank? %>
+              <p class="text-center event-date latoregular"><%= event.start_date.strftime('%B %-d') %></p>
+              <% elsif event.end_date.present? && event.start_date.strftime('%B') === event.end_date.strftime('%B') %>
+              <p class="text-center event-date latoregular"><%= event.start_date.strftime('%B %-d') %> - <%= event.end_date.strftime('%-d') %></p>
+              <% elsif event.end_date.present? && event.start_date.strftime('%B') != event.end_date.strftime('%B') %>
+              <p class="text-center event-date latoregular"><%= event.start_date.strftime('%B %-d') %> - <%= event.end_date.strftime('%B %-d') %></p>
+        		<% end %>
+        		<!--<p class="text-center"><a href="#" class="btn btn-orange btn-xs">View Details</a></p>-->
 					<% end %>
 					</div>
 					<div class="col-md-6">
 						<h2 class="text-center latolight">Announcements</h2>
-						<% if @upcoming_events.blank? %>
-						<h3 class="latobold text-center">Currently no announcements.</h3>
+						<% if @posts.blank? %>
+						<h3 class="latoregular text-center gray">Currently no announcements.</h3>
 						<% end %>
-						<% for event in @upcoming_events %>
-							<h3 class="text-center latobold event-title"><%= event.title %></h3>
-        		<p class="event-date latoregular text-center"><%= event.date %></p>
-        		<p class="text-center latolight event-detail"><%= event.description %></p>
-        		<p class="text-center"><a href="#" class="btn btn-orange">View Details</a></p>
+						<% for post in @posts %>
+							<h3 class="text-center latoregular event-title"><%= link_to post.title, post, class: "orange-link" %></h3>
+        			<p class="text-center latoregular event-date">Posted on <%= post.pub_date.strftime('%B %-d, %Y') %></p>
+
 					<% end %>
 					</div>
 					</div>
@@ -60,7 +66,7 @@
 
 
 
-				
+
 			</div>
 		</div>
 	</div>

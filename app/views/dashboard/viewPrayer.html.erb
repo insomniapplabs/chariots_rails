@@ -1,0 +1,16 @@
+<%= render 'dashnav' %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h2 class="latoblack underline">Prayer Request <span class="small latolight">received <%= @prayer.created_at.strftime('%B %-d, %Y') %></span></h2>
+      <h3 class="latoblack">Name: <span class="latolight"><%= @prayer.full_name %></span></h3>
+      <h3 class="latoblack">Email: <span class="latolight"><%= @prayer.email %></span></h3>
+      <h3 class="latoblack">Phone: <span class="latolight"><%= @prayer.phone %></span></h3>
+      <h3 class="latoblack">Prayer Request: <span class="latolight"><%= @prayer.prayer_request %></span></h3>
+		</div>
+		<!--<div class="col-md-offset-1 col-md-4">
+			<h2 class="latoblack underline">Upcoming Events</h2>
+
+		</div>-->
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<%= render 'partials/main_nav' %>
+<div class="event-show-pg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1 class="latolight no-btm-margin"><%= @event.title %></h1>
+				<% if @event.end_date.blank? %>
+          <p class="latolight"><%= @event.start_date.strftime('%B %-d') %></p>
+          <% elsif @event.end_date.present? && @event.start_date.strftime('%B') === @event.end_date.strftime('%B') %>
+          <p class="latolight"><%= @event.start_date.strftime('%B %-d') %> - <%= @event.end_date.strftime('%-d') %></p>
+          <% elsif @event.end_date.present? && @event.start_date.strftime('%B') != @event.end_date.strftime('%B') %>
+          <p class="latolight"><%= @event.start_date.strftime('%B %-d') %> - <%= @event.end_date.strftime('%B %-d') %></p>
+        <% end %>
+        <div class="text-container">
+        	<%= sanitize @event.description %>
+        </div>
+			</div>
+			<div class="col-md-offset-1 col-md-3">
+			</div>
+		</div>
+	</div>
+</div>

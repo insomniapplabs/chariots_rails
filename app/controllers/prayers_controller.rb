@@ -11,6 +11,12 @@ class PrayersController < ApplicationController
     end
   end
 
+  def destroy
+    @prayer = Prayer.find(params[:id])
+    @prayer.destroy
+    redirect_to dashboard_prayers_path
+  end
+
   private
     def prayer_params
       params.require(:prayer).permit(:full_name, :email, :phone, :prayer_request)

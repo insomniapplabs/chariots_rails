@@ -6,10 +6,17 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
   get 'dashboard/events', to: 'dashboard#events'
   get 'dashboard/posts', to: 'dashboard#posts'
+  get 'dashboard/prayers', to: 'dashboard#prayers'
   get 'c4c-signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+  get 'dashboard/events/new', to: 'dashboard#newEvent', as: 'dashboard_new_event'
+  get 'dashboard/events/edit/:id', to: 'dashboard#editEvent', as: 'dashboard_edit_event'
+
+  get 'dashboard/posts/edit/:id', to: 'dashboard#editPost', as: 'dashboard_edit_post'
+  get 'dashboard/prayer/:id', to: 'dashboard#viewPrayer', as: 'dashboard_prayer'
 
   resources :users
 
@@ -18,7 +25,7 @@ Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
   resources :prayers
 
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

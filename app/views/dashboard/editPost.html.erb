@@ -1,0 +1,33 @@
+<%= render 'dashnav' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<h2 class="latoblack underline">Edit Post</h2>
+      <%= form_for @post, { controller: "posts", action: "update"} do |f| %>
+      <div class="form-group">
+        <label class="sr-only">Title</label>
+        <%= f.text_field :title, class: "form-control latolight", placeholder: "Post Title" %>
+      </div>
+      <div class="form-group" id="date_picker">
+        <label class="sr-only">Publish On Date</label>
+        <%= f.text_field :pub_date, class: "form-control latolight", placeholder: "Publish On Date" %>
+      </div>
+      <div class="form-group" id="date_picker2">
+        <label class="sr-only">End Date</label>
+        <%= f.text_field :end_date, class: "form-control latolight", placeholder: "Event End Date" %>
+      </div>
+      <div class="form-group">
+        <label class="sr-only">Body</label>
+        <%= f.text_area :body, class: "form-control redactor" %>
+      </div>
+      <%= f.submit "Update Post", class: "btn btn-orange" %>
+      
+    <% end %>
+		</div>
+		<!--<div class="col-md-offset-1 col-md-4">
+			<h2 class="latoblack underline">Upcoming Events</h2>
+
+		</div>-->
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<%= render 'partials/main_nav' %>
+<div class="event-show-pg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1 class="latolight no-btm-margin"><%= @post.title %></h1>
+        <p class="latolight"><%= @post.pub_date.strftime('%B %-d') %></p>
+
+        <div class="text-container">
+        	<%= sanitize @post.body %>
+        </div>
+			</div>
+			<div class="col-md-offset-1 col-md-3">
+			</div>
+		</div>
+	</div>
+</div>

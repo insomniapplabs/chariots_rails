@@ -4,7 +4,16 @@
 ready = ->
   $('#date_picker input').datepicker
     format: 'yyyy-mm-dd'
-  
+    autoclose: true
+    todayBtn: true
+    todayHighlight: true
+    orientation: "top"
+  $('#date_picker2 input').datepicker
+  	format: 'yyyy-mm-dd'
+  	autoclose: true
+  	todayBtn: true
+  	todayHighlight: true
+  	orientation: "top"
   return
 
 $(document).ready(ready)

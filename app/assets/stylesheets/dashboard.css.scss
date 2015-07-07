@@ -2,5 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .redactor-editor {
-	min-height:300px;
+	min-height:400px;
+}
+.dash-pg-container {
+	background:#2877bb;
+	height:100vh;
+}
+#eventTitle {
+	input {
+		border-color:#ddd;
+		font-size:2.5em;
+		padding:5px 10px 0 10px;
+		height:60px;
+		font-family:'latolight';
+	}
+}
+.start_end_date {
+	input {
+		border-color:#ddd;
+		height:40px;
+		font-size:1.2em;
+		font-family:'latolight';
+	}
+}
+.new-event-hdr {
+	border-bottom:1px solid #004f8e;
+	margin-bottom:20px;
+	padding-bottom:10px;
+	color:white;
+}
+.underline { border-bottom:1px solid #ddd;padding-bottom:10px; }
+a.orange-link {
+	color: #EB4F00;
+	text-decoration:none;
+}
+a.orange-link:hover {
+	color:#EB4F00;
+	text-decoration:underline;
 }

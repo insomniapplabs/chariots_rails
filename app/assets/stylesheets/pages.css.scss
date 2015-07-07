@@ -9,8 +9,8 @@
 .latoblack {font-family:'latoblack';}
 
 /* COLORS */
-.white {color:#fff;}
-
+.white { color:#fff; }
+.gray { color:#bbb; }
 
 /* GLOBAL STYLES */
 
@@ -60,8 +60,8 @@
   }
 }
 .events-container {padding:30px 0 60px 0;}
-.event-title {font-size:1.8em;}
-.event-date {font-size:1.1em;}
+.event-title {font-size:1.6em;margin-bottom:4px;color:#EB4F00;}
+.event-date {font-size:1.1em;margin-top:0;}
 .event-detail{font-size:1.15em;}
 
 
@@ -496,5 +496,3 @@ fieldset[disabled] .navbar-dash .btn-link:focus {
     margin:0;
   }
 }
-
-
